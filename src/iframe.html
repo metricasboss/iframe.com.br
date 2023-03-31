@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>Este é o iframe</title>
-    
+
 </head>
 <body>
-    <form action="POST" id="myForm" onsubmit="">
+    <form method="GET" id="myForm" action="">
         <input type="text" name="email" />
         <input type="submit" value="Cadastre-se na newsletter" />
     </form>
@@ -16,7 +16,12 @@
     <script type="text/javascript">
 		document.getElementById("myForm").onsubmit = (e) => {
             e.preventDefault()
-            parent.postMessage({"event": 'test'}, "http://localhost:8080")
+            parent.postMessage(
+                {
+                    "event": 'test',
+                    "type": "gtm"
+                }
+            , "http://localhost:8080")
         }
 
     </script>

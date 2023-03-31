@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Este é o index</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5XHQK4Q');</script>
+    <!-- End Google Tag Manager -->
+
 </head>
-<body>
-    <iframe src="iframe.html"></iframe>
+<body style="height:100vh">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5XHQK4Q"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+   <iframe src="iframe.html"></iframe>
+    <!-- <iframe id="typeform-full" width="100%" height="100%" frameborder="0" allow="camera; microphone; autoplay; encrypted-media;" src="https://form.typeform.com/to/bGMUmNSe?typeform-medium=embed-snippet"></iframe> <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script> -->
     <script>
-        var dataLayer = window.dataLayer || [];
+        let dataLayer = window.dataLayer || [];
+
         window.addEventListener("message", receiveMessage, false);
 
         function receiveMessage(event) {
-            if (event.origin !== "http://localhost:8080") // Verificando dominio
-                return;
-            
+            // Early return
+            if(event.data.type !== 'gtm') return;
+
             dataLayer.push(event.data)
         }
     </script>
